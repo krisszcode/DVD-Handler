@@ -15,8 +15,12 @@ class CreateDvdsTable extends Migration
     {
         Schema::create('dvds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->dateTime('release')->nullable();
+            $table->string('producer')->nullable();
+            $table->string('actors')->nullable();
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

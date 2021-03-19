@@ -1,30 +1,25 @@
 require('./bootstrap');
 
 import Vue from 'vue';
+import {
+  BootstrapVue,
+  IconsPlugin
+} from 'bootstrap-vue';
 
 import App from './vue/app';
 import AddDvdForm from './vue/addDvdForm';
 import EditDvdForm from './vue/editDvdForm';
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+Vue.use(BootstrapVue)
 
-library.add(faPlusSquare, faTrash)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.use(IconsPlugin)
 
 const app = new Vue({
   el: '#app',
-  components: { App }
-});
-
-const addDvdForm = new Vue({
-  el: '#addDvdForm',
-  components: { AddDvdForm }
-})
-
-const editDvdForm = new Vue({
-  el: '#editDvdForm',
-  components: { EditDvdForm }
+  components: {
+    App,
+    AddDvdForm,
+    EditDvdForm
+  }
 });
